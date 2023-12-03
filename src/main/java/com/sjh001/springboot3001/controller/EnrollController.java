@@ -4,11 +4,15 @@ import com.sjh001.springboot3001.bean.Result;
 import com.sjh001.springboot3001.bean.User;
 import com.sjh001.springboot3001.mapper.UserMapper;
 import com.sjh001.springboot3001.service.UserService;
+import com.sjh001.springboot3001.util.JWTutil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class EnrollController {
@@ -39,7 +43,12 @@ public class EnrollController {
             return Result.error("用户名不存在");
         }
         if(password.equals(u.getPassword())){
-            return Result.success("token");
+            HashMap hashMap= new HashMap();
+            hashMap.put("userip",httpServletRequest.getRemoteAddr());
+            hashMap.put("username",u.getUser_name());
+            hashMap.put("username",u.getUser_id());
+            String token = JWTutil.getToken(hashMap);
+            return Result.success(token);
         }
         return Result.error("用户名或密码错误");
     }
