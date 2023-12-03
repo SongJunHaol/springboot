@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sjh001.springboot3001.mapper.SchoolMapper">
+
+    <!--    public School getSchool(String name);-->
+    <select id="getSchool" resultType="com.sjh001.springboot3001.bean.School">
+        select * from school where schoolname = '大连大学'
+    </select>
+
+
+
+    <select id="getSchoolCount" resultType="int">
+        select count(*) from school where province = '辽宁'
+    </select>
+</mapper>

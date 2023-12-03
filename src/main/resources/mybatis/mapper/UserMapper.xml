@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sjh001.springboot3001.mapper.UserMapper">
+    <select id="usernameFindByUser" resultType="com.sjh001.springboot3001.bean.User">
+        SELECT * FROM sys_user WHERE user_name = #{username}
+    </select>
+
+    <insert id="insetUser">
+        INSERT INTO sys_user (user_name,nick_name,password) VALUES(#{username},#{nickname},#{password})
+    </insert>
+</mapper>
