@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class Test001 {
     @Test
@@ -55,8 +56,22 @@ public class Test001 {
     @Test
     void Test004(){
         String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJpcCI6IjA6MDowOjA6MDowOjA6MSIsInVzZXJuYW1lIjoxMDl9LCJleHAiOjE3MDE2MTQ0ODJ9.SGj9GEqhdGQmsIlEn1PW9HRj96TGY0kSLYNR8_1vIAU";
-        boolean b = JWTutil.idToken(token);
+        boolean b = JWTutil.isToken(token);
         System.out.println(b);
+    }
+
+    @Test
+    void Test005(){
+        String content = "I am noob from runoob.com.";
+
+        String pattern = ".*runoob.*";
+
+        boolean isMatch = Pattern.matches(pattern, content);
+        System.out.println("字符串中是否包含了 'runoob' 子字符串? " + isMatch);
+    }
+    @Test
+    void Test006(){
+        System.out.println(UUID.randomUUID());
     }
 }
 

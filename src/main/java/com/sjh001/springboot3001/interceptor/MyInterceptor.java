@@ -1,5 +1,6 @@
 package com.sjh001.springboot3001.interceptor;
 
+import com.sjh001.springboot3001.util.JWTutil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -10,11 +11,28 @@ public class MyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 //        return HandlerInterceptor.super.preHandle(request, response, handler);
         System.out.println("请求进来了");
-        return true;
+        String token = request.getHeader("token");
+        boolean istoken = JWTutil.isToken(token);
+        System.out.println(token);
+        System.out.println(istoken);
+        if(istoken){
+            return true;
+        }else {
+            response.setStatus(401);
+//            new Exception("token不合法");
+            return false;
+        }
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+//        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+        System.out.println("拦截第二部");
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        System.out.println("拦截第三步");
+        //        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }

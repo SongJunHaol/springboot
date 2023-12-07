@@ -8,7 +8,9 @@ import com.sjh001.springboot3001.util.JWTutil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -20,7 +22,7 @@ public class EnrollController {
     private UserService userService;
     @PostMapping("/enroll")
     public Result<String> enroll(String username,String nickname, String password){
-        if(username!=null&&nickname!=null&&password!=null){
+        if(!StringUtils.isEmpty(username) && !StringUtils.isEmpty(nickname) && !StringUtils.isEmpty(password)){
             User u = userService.findByUser(username);
             if(u==null){
                 int i = userService.insertUser(username,nickname,password);
@@ -38,7 +40,9 @@ public class EnrollController {
     public Result login(@Pattern(regexp = "^\\S{3,16}$")String username,
                         @Pattern(regexp = "^\\S{3,16}$")String password, HttpServletRequest httpServletRequest){
         User u = userService.findByUser(username);
+        System.out.println(u);
         System.out.println("ip"+httpServletRequest.getRemoteAddr().toString());
+        System.out.println(httpServletRequest.getHeader("token"));
         if(u==null){
             return Result.error("用户名不存在");
         }
@@ -51,6 +55,18 @@ public class EnrollController {
             return Result.success(token);
         }
         return Result.error("用户名或密码错误");
+    }
+
+    @PostMapping("/updatapassword")
+    public Result updatapassword(@RequestBody User user){
+        System.out.println(user);
+        return Result.success(user);
+    }
+
+    @PostMapping("/updatapassword1")
+    public Result updatapassword1(@RequestBody Map<String,String> map){
+        System.out.println(map);
+        return Result.success(map);
     }
 
 }

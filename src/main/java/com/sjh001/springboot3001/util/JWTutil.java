@@ -17,7 +17,7 @@ public class JWTutil {
                 .withExpiresAt(new Date(System.currentTimeMillis()+1000*60*60))
                 .sign(Algorithm.HMAC256(KEY));
     }
-    public static boolean idToken(String token){
+    public static boolean isToken(String token){
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(KEY)).build();
         try {
             jwtVerifier.verify(token);

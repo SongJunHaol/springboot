@@ -18,6 +18,7 @@ public class ScoolController {
 
     @GetMapping("/getschool")
     public School getSchool(@RequestParam("schoolname") String schoolname){
+
         System.out.println(schoolname);
         return schoolMapper.getSchool(schoolname);
     }
