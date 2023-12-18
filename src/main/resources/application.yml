@@ -7,6 +7,7 @@ spring:
 
 
 
+
 #spring:
 #  datasource:
 #    username: root
@@ -19,3 +20,5 @@ spring:
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+#server:
+#  port: 8000

@@ -12,4 +12,10 @@ public class GlobExceptionHandler {
 //        e.printStackTrace();
         return Result.error(e.getMessage()+"参数错误");
     }
+    @ExceptionHandler(UserException.class)
+    public Result handlerExection(UserException e){
+//        e.printStackTrace();
+        return Result.error(e.getMessage());
+    }
+
 }

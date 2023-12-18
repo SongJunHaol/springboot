@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JWTutil {
+public class JWTutil  {
     private static final String KEY = "com.sjh.www.123";
     public static String getToken(HashMap hashMap){
         return JWT.create()
