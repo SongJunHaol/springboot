@@ -39,6 +39,7 @@ public class EnrollController {
     @PostMapping("/login")
     public Result login(@Pattern(regexp = "^\\S{3,16}$")String username,
                         @Pattern(regexp = "^\\S{3,16}$")String password, HttpServletRequest httpServletRequest){
+
         User u = userService.findByUser(username);
         System.out.println(u);
         System.out.println("ip"+httpServletRequest.getRemoteAddr().toString());

@@ -1,6 +1,7 @@
 package com.sjh001.springboot3001.service.impl;
 
 import com.sjh001.springboot3001.bean.User;
+import com.sjh001.springboot3001.exception.UserException;
 import com.sjh001.springboot3001.mapper.UserMapper;
 import com.sjh001.springboot3001.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUser(String username) {
-        return userMapper.usernameFindByUser(username);
+        User user = userMapper.usernameFindByUser(username);
+        if(user==null){
+            throw new UserException("用户不存在1");
+        }
+        return user;
     }
 
     @Override

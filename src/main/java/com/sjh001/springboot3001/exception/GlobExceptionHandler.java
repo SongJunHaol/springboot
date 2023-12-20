@@ -18,4 +18,10 @@ public class GlobExceptionHandler {
 //        e.printStackTrace();
         return Result.error(e.getMessage());
     }
+    @ExceptionHandler(UserException.class)
+    public Result handlerExection(UserException e){
+//        e.printStackTrace();
+        return Result.error(e.getMessage());
+    }
+
 }
