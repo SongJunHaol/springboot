@@ -14,4 +14,8 @@
     <select id="getSchoolCount" resultType="int">
         select count(*) from school where province = '辽宁'
     </select>
+
+    <select id="getSchool1" resultType="com.sjh001.springboot3001.bean.School">
+
+    </select>
 </mapper>

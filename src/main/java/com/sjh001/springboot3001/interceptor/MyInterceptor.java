@@ -1,5 +1,6 @@
 package com.sjh001.springboot3001.interceptor;
 
+import com.sjh001.springboot3001.exception.TokenException;
 import com.sjh001.springboot3001.util.JWTutil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,6 +13,9 @@ public class MyInterceptor implements HandlerInterceptor {
 //        return HandlerInterceptor.super.preHandle(request, response, handler);
         System.out.println("请求进来了");
         String token = request.getHeader("token");
+        if(token==null){
+            throw new TokenException();
+        }
         boolean istoken = JWTutil.isToken(token);
         System.out.println(token);
         System.out.println(istoken);
@@ -19,8 +23,8 @@ public class MyInterceptor implements HandlerInterceptor {
             return true;
         }else {
             response.setStatus(401);
-//            new Exception("token不合法");
-            return false;
+            throw new TokenException();
+//            return false;
         }
     }
 
