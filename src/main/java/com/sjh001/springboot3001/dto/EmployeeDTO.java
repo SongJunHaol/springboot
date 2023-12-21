@@ -10,8 +10,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeDTO implements Serializable {
-    private String classname;
 
+    private String city;
     //页码
     private int page;
 

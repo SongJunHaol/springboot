@@ -15,7 +15,6 @@ public class Result<T> {
 
     //成功的方法(携带相应数据)
     public static <E> Result<E> success(E data){
-
         return  new Result<>(200,"操作成功",data);
     }
 

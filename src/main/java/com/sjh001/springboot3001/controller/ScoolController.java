@@ -25,9 +25,10 @@ public class ScoolController {
         return schoolMapper.getSchool(schoolname);
     }
 
-    @GetMapping("/getschool1")
+
+    @GetMapping("/getschoolpoage")
     public Result getschool1(EmployeeDTO employeeDTO){
-        return schoolService.getSchool1(employeeDTO);
+        return Result.success(schoolService.getSchool1(employeeDTO));
     }
 
 }

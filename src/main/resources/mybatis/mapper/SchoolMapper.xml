@@ -16,6 +16,11 @@
     </select>
 
     <select id="getSchool1" resultType="com.sjh001.springboot3001.bean.School">
-
+        SELECT * FROM `school`
+        <where>
+            <if test="city!=null and city!=''">
+                schoolname LIKE concat(#{city},'%')
+            </if>
+        </where>
     </select>
 </mapper>
