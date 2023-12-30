@@ -8,6 +8,11 @@
     </select>
 
     <insert id="insetUser">
-        INSERT INTO sys_user (user_name,nick_name,password) VALUES(#{username},#{nickname},#{password})
+        INSERT INTO sys_user (user_name,nick_name,password,create_time) VALUES(#{username},#{nickname},#{password},NOW())
     </insert>
+
+
+<!--    <insert id="insetUser1">-->
+<!--        INSERT INTO sys_user (user_name,nick_name,password,create_time) VALUES(#{username},#{nickname},#{password},NOW())-->
+<!--    </insert>-->
 </mapper>

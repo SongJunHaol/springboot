@@ -10,6 +10,18 @@ public class GlobExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result handlerExection(Exception e){
 //        e.printStackTrace();
-        return Result.error(e.getMessage()+"参数错误");
+        return Result.error(e.getMessage());
     }
+
+    @ExceptionHandler(TokenException.class)
+    public Result handlerExection(TokenException e){
+//        e.printStackTrace();
+        return Result.error(e.getMessage());
+    }
+    @ExceptionHandler(UserException.class)
+    public Result handlerExection(UserException e){
+//        e.printStackTrace();
+        return Result.error(e.getMessage());
+    }
+
 }
