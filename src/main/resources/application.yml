@@ -4,7 +4,11 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/teachmgr?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT&nullCatalogMeansCurrent = true
-
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
 
 
 #spring:

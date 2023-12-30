@@ -15,7 +15,8 @@ class Springboot3001ApplicationTests {
 
     @Test
     void contextLoads() {
-        userService.findByUser("sjh12463");
+//        userService.findByUser("sjh12463");
+        System.out.println("你好");
     }
 
 }
