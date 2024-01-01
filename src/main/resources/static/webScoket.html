@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="hhh"></div>
+</body>
+<script>
+    document.getElementById("hhh").innerText = "对对对"
+    console.log("niaho")
+    console.log('WebSocket' in window)
+    var webscoket = new WebSocket("ws://localhost:8080/ws")
+    webscoket.onerror = function (){
+        console.log("链接错误")
+    }
+
+    webscoket.onopen = function (){
+        console.log("连接成功回调")
+    }
+
+    //接收到消息回调
+    webscoket.onmessage = function (event){
+        console.log(event)
+    }
+
+</script>
+</html>
