@@ -7,11 +7,16 @@
 <body>
 <div id="hhh"></div>
 </body>
-<script>
+<script type="text/javascript">
+
+    var c = Math.random().toString(36).substr(2)
+    console.log(c)
+
+
     document.getElementById("hhh").innerText = "对对对"
     console.log("niaho")
     console.log('WebSocket' in window)
-    var webscoket = new WebSocket("ws://localhost:8080/ws")
+    var webscoket = new WebSocket("ws://localhost:8080/ws/"+c)
     webscoket.onerror = function (){
         console.log("链接错误")
     }
@@ -22,7 +27,8 @@
 
     //接收到消息回调
     webscoket.onmessage = function (event){
-        console.log(event)
+        console.log(event.data)
+        document.getElementById("hhh").innerText = event.data
     }
 
 </script>

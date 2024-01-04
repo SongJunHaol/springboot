@@ -15,7 +15,7 @@ public class MyTask {
     private MyWebScoket myWebScoket;
 
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0/1 * * * * ?")
 //    @Scheduled
     public void executeTask(){
 //        log.info("定时任务启动了{}" , new Date());
