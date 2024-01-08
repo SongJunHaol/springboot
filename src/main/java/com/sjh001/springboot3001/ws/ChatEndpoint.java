@@ -31,10 +31,14 @@ public class ChatEndpoint {
 
     //接收到游览器发送的数据时候出发
     @OnMessage
-    public  void onMwssage(String message){}
+    public  void onMwssage(String message){
+
+    }
 
     //链接关闭时候触发
     @OnClose
-    public  void onClose(){}
+    public  void onClose(){
+
+    }
 
 }

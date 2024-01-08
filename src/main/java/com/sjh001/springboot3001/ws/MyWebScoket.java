@@ -10,18 +10,19 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-@ServerEndpoint(value = "/ws",configurator = GetHttpSesstionConfig.class)
+@ServerEndpoint(value = "/ws/{sid}" )
 public class MyWebScoket {
     //该集合需要是静态的，在类加载的时候执行，改类是多类的，如果不是静态的可能每个实例都需要有个map集合，
-    private static final Map<String, Session> map = new ConcurrentHashMap<>();
+    private static final Map<String, Session> map = new HashMap();
 
     //链接建立时触发
     @OnOpen
-    public void onOpen(Session session, EndpointConfig endpointConfig , @PathParam("sid") String sid){
+    public void onOpen(Session session , @PathParam("sid") String sid){
         System.out.println("客户端建立链接");
         map.put(sid,session);
     }
@@ -46,7 +47,7 @@ public class MyWebScoket {
             try {
                 session.getBasicRemote().sendText(message);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
     }
