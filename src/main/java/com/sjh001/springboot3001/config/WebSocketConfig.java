@@ -10,10 +10,4 @@ public class WebSocketConfig {
     public ServerEndpointExporter serverEndpointExporter() {
         return new ServerEndpointExporter();
     }
-
-
-
-
-
-//     System.out.println("websocket启动了");
 }

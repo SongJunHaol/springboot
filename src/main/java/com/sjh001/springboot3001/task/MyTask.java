@@ -13,12 +13,8 @@ import java.util.Date;
 public class MyTask {
     @Autowired
     private MyWebScoket myWebScoket;
-
-
     @Scheduled(cron = "0/1 * * * * ?")
-//    @Scheduled
     public void executeTask(){
-//        log.info("定时任务启动了{}" , new Date());
         myWebScoket.sendToAllClient("这是服务端的消息"+new Date());
     }
 }
