@@ -10,8 +10,7 @@ import lombok.NoArgsConstructor;
 public class StudentEmpDTO {
     private int page;
     private int pageSize;
-    private String studentname;
-    private String enrolTime;
-    private String speciality;
-    private String clazz;
+    private String discipline;
+    private String studentId;
+    private int sort;
 }

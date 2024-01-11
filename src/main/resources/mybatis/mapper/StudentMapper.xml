@@ -3,9 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sjh001.springboot3001.mapper.StudentMapper">
+
+
     <select id="idGetStudnet" resultType="com.sjh001.springboot3001.bean.Student">
         SELECT * FROM student WHERE studentno LIKE #{studentid}
     </select>
+
+
+    <!--    根据提供-->
+    <select id="getStudentExam" resultType="com.sjh001.springboot3001.bean.StudentEmp">
+        SELECT studentName,studentno,tea.modulename,e.empname, scst.expressscore,scst.examscore,scst.homeworkscore,scst.bonuspoint,scst.score,TEA.pubdate
+        FROM student st
+        INNER JOIN (SELECT * FROM score WHERE studentid LIKE CONCAT(#{studentId},'%')) scst ON st.studentid = scst.studentid
+        INNER JOIN teachmodule tea ON tea.moduleid = scst.moduleid
+        INNER JOIN emp e ON tea.empid = e.empid
+        <where>
+            <if test="discipline!=null and discipline!=''">
+                tea.modulename LIKE CONCAT('%',#{discipline},'%')
+            </if>
+        </where>
+        <if test="sort==1 and sort!=null">
+            ORDER BY expressscore asc
+        </if>
+        <if test="sort==-1 and sort!=null">
+            ORDER BY expressscore DESC
+        </if>
+        <if test="sort==null and sort==''">
+            ORDER BY expressscore asc
+        </if>
+
+    </select>
+
+
+
 
     <insert id="setUser">
         INSERT INTO sys_user (user_name,nick_name) VALUES(#{username},#{nickname})
