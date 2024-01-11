@@ -22,4 +22,5 @@ public class RedisTest {
         String s = (String) valueOperations.get("name");
         System.out.println(s);
     }
+
 }
