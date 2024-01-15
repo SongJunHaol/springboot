@@ -4,11 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.util.DigestUtils;
 
 import java.io.File;
+import java.security.MessageDigest;
+import java.time.LocalDateTime;
 import java.util.UUID;
 @Slf4j
-//@SpringBootTest
+@SpringBootTest
 public class UserTest01 {
     @Test
     public void Test001(){
@@ -24,6 +27,18 @@ public class UserTest01 {
         stringBuffer.append("fdskafd");
         System.out.println(stringBuffer);
 
+    }
+
+
+    @Test
+    public void Test002(){
+        String s1 = "admin";
+        s1 = DigestUtils.md5DigestAsHex(s1.getBytes());
+        log.info(s1);
+    }
+    @Test
+    public void Test003(){
+        log.info(String.valueOf(LocalDateTime.now()));
     }
 
 }

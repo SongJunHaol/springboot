@@ -14,10 +14,10 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User findByUser(String username) {
+    public User findByUser(String username ) {
         User user = userMapper.usernameFindByUser(username);
         if(user==null){
-            throw new UserException("用户不存在1");
+            throw new UserException("用户不存在");
         }
         return user;
     }
