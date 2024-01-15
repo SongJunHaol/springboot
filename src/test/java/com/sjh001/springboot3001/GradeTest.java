@@ -17,6 +17,12 @@ import java.util.List;
 @Slf4j
 public class GradeTest {
 
+
+    public static void main(String[] args) {
+        System.out.println("");
+    }
+
+
     @Autowired
     GradeService gradeService;
 
