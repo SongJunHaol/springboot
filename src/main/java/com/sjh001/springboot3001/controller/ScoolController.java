@@ -6,6 +6,7 @@ import com.sjh001.springboot3001.dto.EmployeeDTO;
 import com.sjh001.springboot3001.mapper.SchoolMapper;
 import com.sjh001.springboot3001.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,8 +27,10 @@ public class ScoolController {
     }
 
 
+    //TODO
+
     @GetMapping("/getschoolpoage")
-    public Result getschool1(EmployeeDTO employeeDTO){
+    public Result getschool1(@Validated EmployeeDTO employeeDTO){
         return Result.success(schoolService.getSchool1(employeeDTO));
     }
 

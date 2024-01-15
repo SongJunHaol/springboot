@@ -4,9 +4,12 @@ import com.sjh001.springboot3001.bean.Result;
 import com.sjh001.springboot3001.bean.Student;
 import com.sjh001.springboot3001.mapper.SchoolMapper;
 import com.sjh001.springboot3001.mapper.StudentMapper;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,7 +21,7 @@ public class StudentController {
     private StudentMapper studentMapper;
 
     @GetMapping("/getstudent")
-    public Result getStudent(String classname){
+    public Result getStudent(@RequestParam(defaultValue = "01") String classname){
 //        List<Student> s = studentMapper.idGetStudnet("20200607"+classname+"__");
 //        System.out.println(Result.success(s));
 //        return  Result.success(studentMapper.idGetStudnet("20200607"+classname+"__"));
