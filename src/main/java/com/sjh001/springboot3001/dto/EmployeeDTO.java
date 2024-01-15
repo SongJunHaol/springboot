@@ -16,10 +16,13 @@ import java.io.Serializable;
 public class EmployeeDTO implements Serializable {
 
 
-    @NotBlank(message = "请填写参数")
+    @NotBlank(message = "city参数是必填项")
     private String city;
+
+
     //页码
-    private int page;
+    @NotNull(message = "page参数是必填项")
+    private Integer page;
 
     private int pageSize;
 }
