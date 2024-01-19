@@ -1,5 +1,6 @@
 package com.sjh001.springboot3001.dto;
 
+import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class EmployeeDTO implements Serializable {
 
     //页码
     @NotNull(message = "page参数是必填项")
+    @DecimalMax(value = "5",message = "page最大参数是5")
     private Integer page;
 
     private int pageSize;

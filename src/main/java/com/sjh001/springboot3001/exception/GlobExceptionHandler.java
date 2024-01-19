@@ -45,10 +45,10 @@ public class GlobExceptionHandler {
 
 
 
-//    @ExceptionHandler(ConstraintViolationException.class)
-//    public Result handlerExection(ConstraintViolationException e){
-//        return Result.error(e.getMessage());
-//    }
+    @ExceptionHandler(ConstraintViolationException.class)
+    public Result handlerExection(ConstraintViolationException e){
+        return Result.error(e.getMessage());
+    }
 
 
 }

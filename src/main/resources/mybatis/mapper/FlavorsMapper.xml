@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sjh001.springboot3001.mapper.DishesMapper">
+    <insert id="insertDishes" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+        dishes (categer,description,name,price,status)
+        VALUES("456",#{description},#{name},#{price},1)
+    </insert>
+</mapper>

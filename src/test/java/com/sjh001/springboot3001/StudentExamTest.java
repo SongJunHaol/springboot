@@ -1,9 +1,11 @@
 package com.sjh001.springboot3001;
 
 
+import com.sjh001.springboot3001.bean.Dishes;
 import com.sjh001.springboot3001.bean.PageResult;
 import com.sjh001.springboot3001.dto.EmployeeDTO;
 import com.sjh001.springboot3001.dto.StudentEmpDTO;
+import com.sjh001.springboot3001.mapper.DishesMapper;
 import com.sjh001.springboot3001.service.impl.SchoolServiceImpl;
 import com.sjh001.springboot3001.service.impl.StudentServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +26,9 @@ public class StudentExamTest {
     @Autowired
     public SchoolServiceImpl schoolService;
 
+    @Autowired
+    public DishesMapper dishesMapper;
+
     @Test
     public void getStudnetExam(){
         StudentEmpDTO studentEmpDTO = new StudentEmpDTO();
@@ -38,8 +43,11 @@ public class StudentExamTest {
 
     @Test
     public void getSchool1(){
-        EmployeeDTO employeeDTO = new EmployeeDTO();
-
-//        schoolService.getSchool1()
+        Dishes dishes = new Dishes();
+        dishes.setDescription("打卤面卤子满条1");
+        dishes.setName("面条1");
+        dishes.setPrice(15.65);
+        dishesMapper.insertDishes(dishes);
+        log.info(String.valueOf(dishes.getId()));
     }
 }
