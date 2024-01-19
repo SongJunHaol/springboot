@@ -2,10 +2,12 @@ package com.sjh001.springboot3001;
 
 
 import com.sjh001.springboot3001.bean.Dishes;
+import com.sjh001.springboot3001.bean.Flavors;
 import com.sjh001.springboot3001.bean.PageResult;
 import com.sjh001.springboot3001.dto.EmployeeDTO;
 import com.sjh001.springboot3001.dto.StudentEmpDTO;
 import com.sjh001.springboot3001.mapper.DishesMapper;
+import com.sjh001.springboot3001.mapper.FlavorsMapper;
 import com.sjh001.springboot3001.service.impl.SchoolServiceImpl;
 import com.sjh001.springboot3001.service.impl.StudentServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +30,17 @@ public class StudentExamTest {
 
     @Autowired
     public DishesMapper dishesMapper;
+
+    @Autowired
+    public FlavorsMapper flavorsMapper;
+
+    @Test
+    public void inserFlavorsTest(){
+        Flavors flavors = new Flavors();
+        flavors.setName("香辣");
+        flavors.setDischid("2");
+        flavorsMapper.insertFlavors(flavors);
+    }
 
     @Test
     public void getStudnetExam(){

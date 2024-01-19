@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface FlavorsMapper {
-    Integer insertFlavors(@Param("flavors") Flavors flavors);
+    Integer insertFlavors(Flavors flavors);
 }
