@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -28,19 +29,9 @@ public class StudentExamTest {
     @Autowired
     public SchoolServiceImpl schoolService;
 
-    @Autowired
-    public DishesMapper dishesMapper;
 
-    @Autowired
-    public FlavorsMapper flavorsMapper;
 
-    @Test
-    public void inserFlavorsTest(){
-        Flavors flavors = new Flavors();
-        flavors.setName("香辣");
-        flavors.setDischid("2");
-        flavorsMapper.insertFlavors(flavors);
-    }
+
 
     @Test
     public void getStudnetExam(){
@@ -54,13 +45,5 @@ public class StudentExamTest {
         PageResult pageResult = studentService.getStudentExam(studentEmpDTO);
     }
 
-    @Test
-    public void getSchool1(){
-        Dishes dishes = new Dishes();
-        dishes.setDescription("打卤面卤子满条1");
-        dishes.setName("面条1");
-        dishes.setPrice(15.65);
-        dishesMapper.insertDishes(dishes);
-        log.info(String.valueOf(dishes.getId()));
-    }
+
 }

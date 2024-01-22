@@ -7,6 +7,10 @@
     <insert id="insertFlavors" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
         flavorsid (dischid,name)
-        VALUES(#{dischid},#{name})
+        VALUES
+        <foreach collection="flavors" item="item" separator=",">
+            (#{item.dischid},#{item.name})
+        </foreach>
+
     </insert>
 </mapper>

@@ -4,7 +4,9 @@ import com.sjh001.springboot3001.bean.Flavors;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface FlavorsMapper {
-    Integer insertFlavors(Flavors flavors);
+    Integer insertFlavors(List<Flavors> flavors);
 }
