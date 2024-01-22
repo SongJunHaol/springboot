@@ -16,11 +16,11 @@ import java.util.List;
 @Slf4j
 @RestControllerAdvice
 public class GlobExceptionHandler {
-//    @ExceptionHandler(Exception.class)
-//    public Result handlerExection(Exception e){
-////        e.printStackTrace();
-//        return Result.error(e.getMessage());
-//    }
+    @ExceptionHandler(Exception.class)
+    public Result handlerExection(Exception e){
+//        e.printStackTrace();
+        return Result.error(e.getMessage());
+    }
 
     @ExceptionHandler(TokenException.class)
     public Result handlerExection(TokenException e){

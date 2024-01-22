@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface DishesService {
-    public Result addDishes(DishesDTO dishesDTO);
+    public void addDishes(DishesDTO dishesDTO);
 }

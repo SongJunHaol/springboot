@@ -34,11 +34,11 @@ public class DishesTest {
     @Test
     public void inserintoDishes(){
         List<Flavors> flavorsList = new ArrayList<>();
-        flavorsList.add(new Flavors("麻辣"));
-        flavorsList.add(new Flavors("不辣"));
-        flavorsList.add(new Flavors("香辣"));
-        flavorsList.add(new Flavors("微辣"));
-        DishesDTO dishesDTO = new DishesDTO("过桥米线",14.99,"肉酱过桥米线，好吃的不得了",flavorsList);
+        flavorsList.add(new Flavors("沙拉"));
+        flavorsList.add(new Flavors("番茄"));
+        flavorsList.add(new Flavors("老干妈"));
+        flavorsList.add(new Flavors("蜜汁"));
+        DishesDTO dishesDTO = new DishesDTO("烤肉拌饭",15.99,"美味佳肴，好吃的不得了",flavorsList);
 
         dishesServiceImpl.addDishes(dishesDTO);
     }

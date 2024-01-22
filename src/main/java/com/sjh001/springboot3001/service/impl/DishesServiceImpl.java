@@ -30,7 +30,7 @@ public class DishesServiceImpl implements DishesService {
 
     @Transactional
     @Override
-    public Result addDishes(DishesDTO dishesDTO) {
+    public void addDishes(DishesDTO dishesDTO) {
         Dishes dishes = new Dishes();
         BeanUtils.copyProperties(dishesDTO,dishes);
 
@@ -41,11 +41,11 @@ public class DishesServiceImpl implements DishesService {
             item.setDischid(dishesId);
         });
 
+//        int i = 2/0;
+
         Integer sum = flavorsMapper.insertFlavors(flavors);
 
         log.info("dishesid:{}",dishesId);
         log.info("flavors:{}条",sum);
-
-        return null;
     }
 }
