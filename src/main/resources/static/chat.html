@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="zong">
+    <div class="item">
+        <div class="img">
+            <img src="2.jpg" alt="">
+        </div>
+        <div style="">
+            132465
+        </div>
+    </div>
+
+
+    <div class="item" style="flex-direction: row-reverse">
+        <div class="img">
+            <img src="1.jpg" alt="">
+        </div>
+        <div style="margin-right: 20px ;">
+            132465
+        </div>
+    </div>
+
+
+</div>
+<div  style="width: 700px; margin: auto">
+    <input id="text" style="width: 90%" type="text">
+    <button style="width: 8%" onclick="clicjfun()">发送</button>
+</div>
+
+</body>
+
+<script>
+    let arr = [
+        {text:"1111",weizhi:1},
+        {text:"1111",weizhi:2},
+        {text:"1111",weizhi:2},
+        {text:"1111",weizhi:1},
+    ]
+    function xunaranfun(arr){
+        let innerHtml = ""
+        let zongDom = document.getElementsByClassName("zong")[0]
+        for (var i = 0 ;i <= arr.length-1;i++){
+            if(arr[i].weizhi == 1){
+                innerHtml += "<div class=\"item\">\n" +
+                    "        <div class=\"img\">\n" +
+                    "            <img src=\"/2.jpg\" alt=\"\">\n" +
+                    "        </div>\n" +
+                    "        <div style=\"\">\n" +arr[i].text+
+                    "        </div>\n" +
+                    "    </div>"
+            }else{
+                innerHtml += "<div class=\"item\" style=\"flex-direction: row-reverse\">\n" +
+                    "        <div class=\"img\">\n" +
+                    "            <img src=\"/1.jpg\" alt=\"\">\n" +
+                    "        </div>\n" +
+                    "        <div style=\"margin-right: 20px ;\">\n" +arr[i].text+
+                    "        </div>\n" +
+                    "    </div>"
+            }
+            zongDom.innerHTML = innerHtml
+        }
+    }
+    window.onload  = function (){
+        xunaranfun(arr)
+    }
+    function clicjfun(){
+        let text = document.getElementById("text").value
+        if(text != ""){
+            arr.push({text:text,weizhi:2})
+            xunaranfun(arr)
+        }
+        document.getElementById("text").value = ""
+    }
+    document.getElementById("text").addEventListener('keydown', function (e){
+        console.log(e.keyCode)
+        if(e.keyCode==13){
+            clicjfun()
+        }
+    }, false);
+</script>
+
+<style>
+    .item div:nth-child(2){
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
+        margin-left: 20px ;
+    }
+    .img img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+    }
+
+    .img{
+        width: 40px;
+        height: 40px;
+        border-radius: 25px;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .zong{
+        border: 1px solid seagreen;
+        width: 700px ;
+        height: 500px;
+        border-radius: 20px;
+        padding: 10px;
+        margin: auto;
+        overflow: hidden;
+        overflow-y:auto;
+        background: linear-gradient(blue, pink);
+    }
+    .item{
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+    }
+</style>
+</html>

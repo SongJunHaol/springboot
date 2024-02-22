@@ -16,5 +16,4 @@ public class Springboot3001Application {
     public static void main(String[] args) {
         SpringApplication.run(Springboot3001Application.class, args);
     }
-
 }

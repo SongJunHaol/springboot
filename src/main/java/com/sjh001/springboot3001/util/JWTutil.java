@@ -3,12 +3,8 @@ package com.sjh001.springboot3001.util;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.Verification;
-
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
-
 public class JWTutil  {
     private static final String KEY = "com.sjh.www.123";
     public static String getToken(HashMap hashMap){
