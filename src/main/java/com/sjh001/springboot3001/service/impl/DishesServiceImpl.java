@@ -7,6 +7,7 @@ import com.sjh001.springboot3001.dto.DishesDTO;
 import com.sjh001.springboot3001.mapper.DishesMapper;
 import com.sjh001.springboot3001.mapper.FlavorsMapper;
 import com.sjh001.springboot3001.service.DishesService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ public class DishesServiceImpl implements DishesService {
     @Autowired
     private DishesMapper dishesMapper;
 
-    @Autowired
+//    @Autowired
+    @Resource
     private FlavorsMapper flavorsMapper;
 
 
