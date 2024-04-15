@@ -6,12 +6,93 @@
 </head>
 <body>
 <div id="hhh"></div>
+
+<button id="but">关闭连接</button>
+<br>
+<input type="text" id="text">
+<button type="button" id="but1">commit</button>
+
+<div style="border: 1px solid red ;width: 900px ;height: 500px;margin: auto;display: flex">
+    <div id="items" style="height: 100%;border: 1px solid saddlebrown ; width: 30%">
+
+    </div>
+    <div id="xiaoxi" style="height: 100%;border: 1px solid saddlebrown ; width: 70%">
+<!--        <div style="width: 100% ; display: flex;border: 1px solid seagreen;align-items: center;">-->
+<!--            <div class="touxiang">李四</div>-->
+<!--            <div style="height: 20px; line-height: 20px" >fsdafkld</div>-->
+<!--        </div>-->
+<!--        <div style="width: 100% ; display: flex;border: 1px solid seagreen;align-items: center;justify-content: right">-->
+<!--            <div style="height: 20px; line-height: 20px" >fsdafkld</div>-->
+<!--            <div class="touxiang">李四</div>-->
+<!--        </div>-->
+    </div>
+
+</div>
+
+
 </body>
+<style>
+    .item{
+        width: 100%;
+        height: 50px ;
+        border: 1px solid silver;
+
+    }
+    .touxiang{
+        width: 50px;
+        height: 50px ;
+        border: 1px solid saddlebrown;
+        border-radius: 25px;
+        text-align: center;
+        line-height: 50px;
+        background-color: seagreen;
+        color: white;
+        font-weight: 500
+    }
+</style>
 <script type="text/javascript">
 
+    alert("niha")
     var c = Math.random().toString(36).substr(2)
     console.log(c)
 
+    let arr = [
+        {name:'张三',m:[{weizhi:1,neirong:"duiduid"},{weizhi:2,neirong:"duiduid"},{weizhi:1,neirong:"范德萨"}]},
+        {name:'李四',m:[{weizhi:1,neirong:"duiduidddaf "},{weizhi:2,neirong:"duiduid"},{weizhi:1,neirong:"duidfdsfaid"}]},
+        {name:'王五',m:[{weizhi:2,neirong:"发达发达"},{weizhi:2,neirong:"duiduid"},{weizhi:1,neirong:"范德萨"}]},
+        {name:'李四',m:[{weizhi:1,neirong:"范德萨"},{weizhi:2,neirong:"非让我额"},{weizhi:2,neirong:"duiduid"}]},
+    ]
+
+    let innerHtmlItems = ``
+    for (let i = 0 ; i <= arr.length-1 ; i++){
+        innerHtmlItems += `<div class="item" onclick="onc(${i},'${arr[i].name}')">${arr[i].name}</div>`
+    }
+    console.log(innerHtmlItems)
+
+    let items = document.getElementById("items")
+    items.innerHTML = innerHtmlItems
+
+
+    function onc(index,e){
+        let xiaoxiTest = ``
+        let xiaoXiArr = arr[index].m
+        let xiaoXiObj = arr[index]
+        for (let i = 0 ;i<xiaoXiArr.length;i++){
+            if(xiaoXiArr[i].weizhi==1){
+                xiaoxiTest += `<div style="width: 100% ; display: flex;border: 1px solid seagreen;align-items: center;">
+                                    <div class="touxiang">${xiaoXiObj.name}</div>
+                                    <div style="height: 20px; line-height: 20px" >${xiaoXiArr[i].neirong}</div>
+                                </div>`
+            }else{
+                xiaoxiTest += `<div style="width: 100% ; display: flex;border: 1px solid seagreen;align-items: center;justify-content: right">
+                                    <div class="touxiang">我</div>
+                                    <div style="height: 20px; line-height: 20px" >${xiaoXiArr[i].neirong}</div>
+                                </div>`
+            }
+        }
+        console.log("你好"+index+e)
+        document.getElementById("xiaoxi").innerHTML = xiaoxiTest
+    }
 
     document.getElementById("hhh").innerText = "对对对"
     console.log("niaho")
@@ -30,6 +111,23 @@
         console.log(event.data)
         document.getElementById("hhh").innerText = event.data
     }
+
+    document.getElementById("but").onclick = function (){
+        console.log("关闭连接")
+        webscoket.close()
+    }
+    let but = document.getElementById("but")
+    let but1 = document.getElementById("but1")
+    let text = document.getElementById("text")
+    but.onclick = function (){
+        console.log("关闭连接")
+        webscoket.close()
+    }
+    but1.onclick = function (){
+        console.log(text.value)
+        webscoket.send(text.value)
+    }
+
 
 </script>
 </html>

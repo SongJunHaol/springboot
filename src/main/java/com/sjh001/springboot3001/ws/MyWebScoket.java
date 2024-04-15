@@ -23,7 +23,7 @@ public class MyWebScoket {
     //链接建立时触发
     @OnOpen
     public void onOpen(Session session , @PathParam("sid") String sid){
-        System.out.println("客户端建立链接");
+        System.out.println("客户端建立链接"+"sid:"+sid+"------session:"+session);
         map.put(sid,session);
     }
 
